@@ -1,3 +1,4 @@
+# Reference: https://github.com/boppreh/keyboard#keyboard.remove_hotkey
 import keyboard
 from time import sleep
 from tkinter import ttk, Tk, Label, Frame
