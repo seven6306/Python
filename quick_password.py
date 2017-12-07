@@ -1,7 +1,8 @@
 # Reference: https://github.com/boppreh/keyboard#keyboard.remove_hotkey
 import keyboard
 from time import sleep
-from tkinter import ttk, Tk, Label, Frame
+from tkinter import ttk, Tk, Label, Frame, IntVar
+
 def kb_action(account, password):
 	keyboard.write(account)
 	sleep(1)
@@ -20,11 +21,16 @@ class Windows(Frame):
 	def __init__(self, master=None):
 		ttk.Frame.__init__(self, master)
 		self.master.title('QuickPassword')
-		self.master.geometry('350x145')
+		self.master.geometry('350x180')
 		self.master.resizable(0, 0)
 		self.createWidgets()
-		
 	def createWidgets(self):
+		self.master.CheckVar = IntVar()
+		val = 16
+		for value in range(1,5):
+			self.master.RB = ttk.Radiobutton(self.master, text='', variable=self.master.CheckVar, value=value)
+			self.master.RB.place(x=15, y=val)
+			val = val + 30
 		self.master.LB = Label(self.master, text="1.Account: ", fg="blue")
 		self.master.LB.place(x=40, y=15)
 		self.master.TF1 = ttk.Entry(self.master, width=10)
@@ -34,7 +40,7 @@ class Windows(Frame):
 		self.master.TF2 = ttk.Entry(self.master, width=10)
 		self.master.TF2.place(x=255, y=15)
 		self.master.Run = ttk.Button(self.master, text='OK', command=self.submit)
-		self.master.Run.place(x=250, y=105)
+		self.master.Run.place(x=250, y=145)
 	def submit(self):
 		restore_key('F2')
 		keyboard.add_hotkey('F2', lambda: kb_action(self.master.TF1.get(), self.master.TF2.get()))
