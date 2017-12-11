@@ -8,6 +8,7 @@ from winreg import OpenKey, CreateKey, KEY_ALL_ACCESS, QueryValueEx, SetValueEx,
 def RegistryPrep():
 	if not Registrar('exists', r'HKEY_CURRENT_USER\Software\QKpasswd'):
 		Registrar('setkey', r'HKEY_CURRENT_USER\Software', 'QKpasswd')
+		Registrar('set', r'HKEY_CURRENT_USER\Software\QKpasswd', 'comboset', 'Tab+Enter')
 		for i in range(1,6):
 			Registrar('set', r'HKEY_CURRENT_USER\Software\QKpasswd', 'profile{}'.format(str(i)), ';')
 			Registrar('set', r'HKEY_CURRENT_USER\Software\QKpasswd', 'Text_mark{}'.format(str(i)), 'Click to add text')
@@ -53,7 +54,7 @@ class Windows(Frame):
 	def __init__(self, master=None):
 		ttk.Frame.__init__(self, master)
 		self.master.title('QuickPassword')
-		self.master.geometry('350x285')
+		self.master.geometry('350x290')
 		self.master.resizable(0, 0)
 		self.createWidgets()
 	def createWidgets(self):
@@ -133,6 +134,16 @@ class Windows(Frame):
 		self.master.TF9.place(x=105, y=207)
 		self.master.TF10 = ttk.Entry(self.master, text=Registrar('get', r'HKEY_CURRENT_USER\Software\QKpasswd', 'profile5').split(';')[1], show="●", width=10)
 		self.master.TF10.place(x=255, y=207)
+		self.master.Combo = Label(self.master, text="Keyboard Combo: ", fg="purple").place(x=20, y=255)
+		def editCombo(event):
+			self.master.TF_6 = ttk.Entry(self.master, width=10)
+			self.master.TF_6.place(x=130, y=256)
+			self.master.TF_6.focus_set()
+			self.master.Done6 = ttk.Button(self.master, width=5, text='Done', command=self.save_Combo)
+			self.master.Done6.place(x=205, y=254)
+		self.master.ComboStatus = Label(self.master, text=Registrar('get', r'HKEY_CURRENT_USER\Software\QKpasswd', 'comboset'))
+		self.master.ComboStatus.place(x=130, y=256)
+		self.master.ComboStatus.bind('<Button-1>', editCombo)
 		self.master.Run = ttk.Button(self.master, text='Save', state="disabled", command=self.submit)
 		self.master.Run.place(x=250, y=255)
 	def checked_event(self):
@@ -167,6 +178,12 @@ class Windows(Frame):
 			Registrar('set', r'HKEY_CURRENT_USER\Software\QKpasswd', 'Text_mark5', self.master.TF_5.get())
 		self.master.TF_5.destroy()
 		self.master.Done5.destroy()
+	def save_Combo(self):
+		if self.master.TF_6.get():
+			self.master.ComboStatus.config(text=self.master.TF_6.get())
+			Registrar('set', r'HKEY_CURRENT_USER\Software\QKpasswd', 'comboset', self.master.TF_6.get())
+		self.master.TF_6.destroy()
+		self.master.Done6.destroy()
 	def submit(self):
 		restore_key('F2')
 		TF_list = [self.master.TF1.get() + ';' + self.master.TF2.get(), self.master.TF3.get() + ';' + self.master.TF4.get(),
