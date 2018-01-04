@@ -105,7 +105,7 @@ try:
 					if d <= int(d2):
 						d_lst2.append(y2 + '-' + m2 + '-' + str(d))
 			#case 2017/12/29-2018/01/04 or 2018/01/29-2018/02/04
-			if y1 < y2 or (y1 == y2 and int(m2) - int(m1) == 1):
+			if (y1 < y2 and int(m1) - int(m2) <= 1) or (y1 == y2 and int(m2) - int(m1) == 1):
 				DatePart1(d1)
 				DatePart2(d2)
 			#case 2017/01/10-2017/05/04
@@ -117,8 +117,16 @@ try:
 				DatePart2(d2)
 			#case 2017/10/10-2018/02/04
 			# +> 2017/10/10-2017/12/31 : 2018/01/01-2018/02/04
-			#elif y1 < y2 and int(m1) > int(m2):
-			
+			elif y1 < y2 and int(m1) - int(m2) > 1:
+				print('this case')
+				DatePart1(d1)
+				for i in range(int(m1)+1, 13):
+					for j in getMonthDay(y1, i):
+						d_lst1.append(y1 + '-' + str(i) + '-' + str(j))
+				for i in range(1, int(m2)):
+					for j in getMonthDay(y2, i):
+						d_lst2.append(y2 + '-' + str(i) + '-' + str(j))
+				DatePart1(d2)	
 			#case 2018/01/09-2018/01/20
 			elif y1 == y2 and m1 == m2:
 				for d in getMonthDay(y1, m1):
