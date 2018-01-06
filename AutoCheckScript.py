@@ -49,10 +49,13 @@ def getProgram(fileReg):
 			return(join(Desktop, each_file))
 def getMonthDay(y, m):
 	tmp_list = []
-	for i in range(5):
-		for each_d in monthcalendar(int(y), int(m))[i]:
-			if each_d != 0:
-				tmp_list.append(each_d)
+	for i in range(6):
+		try:
+			for each_d in monthcalendar(int(y), int(m))[i]:
+				if each_d != 0:
+					tmp_list.append(each_d)
+		except IndexError:
+			pass
 	return(tmp_list)
 def getProcesses():
 	EnumObjects(None, None, 0, 1)
@@ -80,7 +83,7 @@ def ProcessAction(action, delay):
 			else:
 				"""
 				prt_message('Automation is not exist, Start iSMART_V5.2.11.exe', status, 'info')
-				system('\"C:\\Program Files (x86)\\VIVOTEK Inc\\iSMART_V5.2.11\\iSMART_V5.2.11.exe\"')
+				system('Powershell Start-Process \"C:\\Program Files (x86)\\VIVOTEK Inc\\iSMART_V5.2.11\\iSMART_V5.2.11.exe\" -Verb RunAs')
 				sleep(2)
 				if 'iSMART_V5.2.11' in getProcesses():
 				"""
@@ -98,20 +101,21 @@ def isAlive(logic=None, threadNum=0):
 
 prt_message("""
 ======================================================================
-\t   Welcome to auto check recording log script
+\t     Welcome to auto check recording log script
 ======================================================================
-\t\t  Follow below listed caution:
-[1] Put the automation "Recording_log_check_Tool_for_vast_vx.x.x.exe"
-    in desktop.
+\t\t    Follow below listed caution:
+[1] Put the automation tool in desktop follow as below example.
+    e.g., "Recording_log_check_Tool_for_vast_vx.x.x.exe"
 [2] Open VAST Playback program as necessary.
-[3] Do not interrupt while script is executing.
-[4] Date range format must be:
+[3] Do not interrupt while script has been executing.
+[4] Press keyboard "Ctrl + C" to exit.
+[5] Date range format must be:
     e.g., 2017/12/29
           2017/12/29-2018/01/01 or 2017/02/28-2017/03/01
 ======================================================================""", status, 'info')
 try:
 	while(1):
-		date_range = input('Please input date range e.g., [2000/01/01-2017/12/31]: ')
+		date_range = input('Please input date range e.g., [2000/01/01-2018/12/31]:\n ==> ')
 		d_lst1, d_lst2 = [], []
 		if search('^20\d{2}/\d{2}/\d{2}\-20\d{2}/\d{2}/\d{2}$', date_range):
 			date_range1, date_range2 = date_range.split('-')[0], date_range.split('-')[1]
@@ -121,10 +125,10 @@ try:
 			if int(y1) > int(y2) or int(m1) > 12 or int(m2) > 12 or 0 in [int(m1), int(m2), int(d1), int(d2)]:
 				prt_message('\nInvalid date format', status, 'error')
 				continue
-			elif y1 == y2 and int(m1) > int(m2):
+			elif (y1 == y2 and int(m1) > int(m2)) or (y1 == y2 and m1 == m2 and int(d1) > int(d2)) or int(d1) > 31 or int(d2) > 31:
 				prt_message('\nInvalid date format', status, 'error')
 				continue
-			def DatePart1(d1):
+			def DateSum1(d1):
 				for d in getMonthDay(y1, m1):
 					if d1[0] == '0':
 						d1 = d1[1]
@@ -132,7 +136,7 @@ try:
 						if d < 10:
 							d = '0' + str(d)
 						d_lst1.append(y1 + '-' + m1 + '-' + str(d))
-			def DatePart2(d2):		
+			def DateSum2(d2):		
 				for d in getMonthDay(y2, m2):
 					if d2[0] == '0':
 						d2 = d2[1]
@@ -140,36 +144,33 @@ try:
 						if d < 10:
 							d = '0' + str(d)
 						d_lst2.append(y2 + '-' + m2 + '-' + str(d))
-			#case 2017/12/29-2018/01/04 or 2018/01/29-2018/02/04
-			if y1 < y2 or (y1 == y2 and int(m2) - int(m1) == 1):
-				DatePart1(d1)
-				DatePart2(d2)
-			#case 2017/01/10-2017/05/04
-			elif y1 == y2 and int(m2) - int(m1) > 1:
-				DatePart1(d1)
-				for i in range(int(m1)+1, int(m2)):
+			def DateSum3(w, x, y, z):
+				for i in range(x, y):
 					if i < 10:
 						fr_i = '0' + str(i)
 					else:
 						fr_i = str(i)
-					for j in getMonthDay(y1, i):
+					for j in getMonthDay(z, i):
 						if j < 10:
 							j = '0' + str(j)
-						d_lst1.append(y1 + '-' + fr_i + '-' + str(j))
-				DatePart2(d2)
-			#case 2017/10/10-2018/02/04
-			# +> 2017/10/10-2017/12/31 : 2018/01/01-2018/02/04
-			#elif y1 < y2 and int(m1) - int(m2) > 1:
-			#	prt_message('this case', status, 'debug')
-			#	DatePart1(d1)
-			#	for i in range(int(m1)+1, 13):
-			#		for j in getMonthDay(y1, i):
-			#			d_lst1.append(y1 + '-' + str(i) + '-' + str(j))
-			#	for i in range(1, int(m2)):
-			#		for j in getMonthDay(y2, i):
-			#			d_lst2.append(y2 + '-' + str(i) + '-' + str(j))
-			#	DatePart1(d2)
-			#case 2018/01/09-2018/01/20
+						w.append(z + '-' + fr_i + '-' + str(j))
+			#case1: 2017/12/29-2018/01/04 or 2018/01/29-2018/02/04
+			if (y1 < y2 and m1 == '12' and m2 == '01') or (y1 == y2 and int(m2) - int(m1) == 1):
+				DateSum1(d1)
+				DateSum2(d2)
+			#case2: 2017/01/10-2017/05/04
+			elif y1 == y2 and int(m2) - int(m1) > 1:
+				DateSum1(d1)
+				DateSum3(d_lst1, int(m1)+1, int(m2), y1)
+				DateSum2(d2)
+			#case3: 2017/10/10-2018/02/04 or 2017/12/05-2018/03/05 or 2017/10/05-2018/01/05
+			elif (y1 < y2 and m1 != '12' and m2 != '01') or (y1 < y2 and m1 == '12' and m2 != '01') or (y1 < y2 and m1 != '12' and m2 == '01'):
+				prt_message('this case', status, 'debug')
+				DateSum1(d1)
+				DateSum3(d_lst1, int(m1)+1, 13, y1)
+				DateSum3(d_lst2, 1, int(m2), y2)
+				DateSum2(d2)
+			#case4: 2018/01/09-2018/01/20
 			elif y1 == y2 and m1 == m2:
 				for d in getMonthDay(y1, m1):
 					if d1[0] == '0':
@@ -206,14 +207,16 @@ try:
 		prt_message('Log Save Path: ' + SavePath, status, 'error')
 
 		if not isdir(SavePath):
+			prt_message('Detect directory is not exists, create new one.\nDirectory: ' + SavePath, status, 'info')
 			mkdir(SavePath)
 
 		if basename(Automation).replace('.exe', '') in getProcesses():
+			prt_message('Detect automation {} is executing in system, kill the process down.'.format(basename(Automation)), status, 'info')
 			system('taskkill /f /im ' + basename(Automation))
 		thread_1.start()
 		thread_2.start()
 		isAlive('lt', 3)
-		if len(listdir(SavePath)) == 64:
+		if len(listdir(SavePath)) >= 64:
 			prt_message('\n***** Date: {} check continues recording completed! *****\n'.format(date_range), status, 'info')
 		else:
 			prt_message('\n***** Date: {} check continues recording failured. *****\n'.format(date_range), status, 'error')
@@ -221,4 +224,4 @@ except Exception:
 	print('', end='')
 except KeyboardInterrupt:
 	prt_message('\nUser press Ctrl+C to exit.', status, 'info')
-	sleep(3)
+sleep(2)
