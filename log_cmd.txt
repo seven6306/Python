@@ -1,0 +1,1 @@
+py.test-3.4 -s --log-file=test.log
