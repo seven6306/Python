@@ -57,7 +57,7 @@ D:\Veb30_7
 
 ## BIOS Auto Release
 <a name="release"/>
-1.  Job View: [KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/ "Title")
+1.  Job View: [KUNLUNS-](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/ "Title")
 
 2.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
