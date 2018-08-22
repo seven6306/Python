@@ -114,7 +114,7 @@ currently work project only KINGLER1P.
 1.  Groovy Script: **D:\Jenkins_script**
 
 2.  Result Template: **template_svn.jelly**
-According build result, if fail then send result mail to BIOS team, else not.
+    - According build result, if fail then send result mail to BIOS team, else not.
 
 3.  Collect Result Pipline: **Jenkinsfile.server.reports**
     - The job on jenkins use to collect each dairy build result and arrange these results to groovy variables.
