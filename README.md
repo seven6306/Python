@@ -113,7 +113,7 @@ The template will decorate the result data from CollectResults.py then parse to 
 ---
 
 ## BIOS Team Mail Address:
-<a name="address"/>
+
  * Ciou.Beck@inventec.com
  * TAO03GE@inventec.com
-
+<a name="address"/>
