@@ -44,7 +44,7 @@ D:\Veb30_7
 2.  Schedule: **A.M. 03:00**
 
 3.  Build Directory
-    e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
+     - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
 
 4.  Python Tools:
     * Rebuild.bat
@@ -62,7 +62,7 @@ D:\Veb30_7
 1.  Job View:  **[KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/ "KUNLUNS")**
 
 2.  Build Directory
-    e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
+     - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
 
 3.  Afu Tools: D:\afu_tools (case1: KINGLER, case2:AS60G1, case3:EXEGGCUTE)
 
@@ -88,7 +88,7 @@ file **build_message** below each dairy build project directory, to generate a d
 3.  Python Tool: **CollectResults.py**
 
 4.  Collect File: **build_message**
-    e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY\build_message
+     - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY\build_message
 
 5.  Physical Path: D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
 
