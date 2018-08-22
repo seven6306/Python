@@ -41,7 +41,7 @@ D:\Veb30_7
 
 1.  Job View:  **[KINGLER1P](http://10.6.75.10:8081/view/KINGLER-1P "KINGLER1P")**
 
-2.  Schedule: **A.M. 03:00**
+2.  Schedule: **A.M. 01:00**
 
 3.  Build Directory
      - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
