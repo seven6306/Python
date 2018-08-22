@@ -38,10 +38,14 @@ D:\Veb30_7
 
 ## BIOS Auto Build
 <a name="build"/>
-1.  Build Directory
+1.  Job View: **[KINGLER1P](http://10.6.75.10:8081/view/KINGLER-1P/)**
+
+2.  Schedule: **A.M. 03:00**
+
+3.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
 
-2.  Python Tools:
+4.  Python Tools:
     * Rebuild.bat
     * ProjectSelector.py
     * BuildResult.py
@@ -53,12 +57,14 @@ D:\Veb30_7
 
 ## BIOS Auto Release
 <a name="release"/>
-1.  Build Directory
+1.  Job View: **[KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/)**
+
+2.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
 
-2.  Afu Tools: D:\afu_tools (case1: KINGLER, case2:AS60G1, case3:EXEGGCUTE)
+3.  Afu Tools: D:\afu_tools (case1: KINGLER, case2:AS60G1, case3:EXEGGCUTE)
 
-3.  Python Tools:
+4.  Python Tools:
     * Rebuild.bat
     * ProjectSelector.py
     * BuildResult.py
@@ -73,14 +79,16 @@ When all the project scheduled build finished, the job **PROJECT-BUILD-BIOS-CHEC
 file **build_message** below each dairy build project directory, to generate a data for groovy script:
 **groovy-html-report.template**, more detail to refer to [Jenkins Send Mail Mechanism](#mail).
 <a name="report"/>
-1.  Jenkins Job: **PROJECT-BUILD-BIOS-CHECK**
+1.  Job View: **[PROJECT-BUILD-BIOS-CHECK](http://10.6.75.10:8081/job/PROJECT-BUILD-BIOS-CHECK/)**
 
-2.  Python Tool: **CollectResults.py**
+2.  Schedule: **A.M. 03:00**
 
-3.  Collect File: **build_message**
+3.  Python Tool: **CollectResults.py**
+
+4.  Collect File: **build_message**
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY\build_message
 
-4.  Physical Path: D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
+5.  Physical Path: D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
 
 ---
 
