@@ -64,7 +64,10 @@ D:\Veb30_7
 2.  Build Directory
      - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
 
-3.  Afu Tools: D:\afu_tools (case1: KINGLER, case2:AS60G1, case3:EXEGGCUTE)
+3.  Afu Tools: D:\afu_tools
+     - case1: KINGLER
+     - case2:AS60G1
+     - case3:EXEGGCUTE
 
 4.  Python Tools:
     * Rebuild.bat
