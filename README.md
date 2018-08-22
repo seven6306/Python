@@ -19,10 +19,11 @@ This build code server is based on Jenkins agent,
 It's a job proxy server, build on docker container.
 
 #### Agent Server Connection
-1.  Goto **http://10.6.75.10:8081/computer/WIN-BUILD-CODE-SERVER/**
+1.  [Agent Connect](http://10.6.75.10:8081/computer/WIN-BUILD-CODE-SERVER/)
 2.  Click Launch agent from browser button, will download the **slave-agent.jnlp**
 3.  Run slave-agent.jnlp to connect the master server.
-4.  When status changed to connected, Jenkins agent was done!
+4.  Permanently accept the application access.
+5.  When status changed to connected, Jenkins agent was done!
 
 #### Working Space
 D:\Jenkins\workspace
