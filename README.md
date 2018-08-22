@@ -3,7 +3,7 @@ CNBL Jenkins CI/CD
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jenkins_logo_with_title.svg/640px-Jenkins_logo_with_title.svg.png)
 ## Overview
  * [Introduction](#workflow)
- * [BIOS Auto Build](#build)
+ * [BIOS Auto Build](#BIOS-Auto-Build)
  * [BIOS Auto Release](#release)
  * [BIOS Dairy Report Mechanism](#report)
  * [BIOS Check Setup Item Mechanism](#setup)
