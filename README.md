@@ -39,7 +39,7 @@ D:\Veb30_7
 ## BIOS Auto Build
 <a name="build"/>
 
-1.  Job View:  [KINGLER1P](http://10.6.75.10:8081/view/KINGLER-1P)
+1.  Job View:  **[KINGLER1P](http://10.6.75.10:8081/view/KINGLER-1P "KINGLER1P")**
 
 2.  Schedule: **A.M. 03:00**
 
@@ -59,7 +59,7 @@ D:\Veb30_7
 ## BIOS Auto Release
 <a name="release"/>
 
-1.  Job View:  [KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/ "Title")
+1.  Job View:  **[KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/ "KUNLUNS")**
 
 2.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
@@ -81,7 +81,7 @@ When all the project scheduled build finished, the job **PROJECT-BUILD-BIOS-CHEC
 file **build_message** below each dairy build project directory, to generate a data for groovy script:
 **groovy-html-report.template**, more detail to refer to [Jenkins Send Mail Mechanism](#mail).
 <a name="report"/>
-1.  Job View: **[PROJECT-BUILD-BIOS-CHECK](http://10.6.75.10:8081/job/PROJECT-BUILD-BIOS-CHECK/)**
+1.  Job View: **[PROJECT-BUILD-BIOS-CHECK](http://10.6.75.10:8081/job/PROJECT-BUILD-BIOS-CHECK/ "CHECK")**
 
 2.  Schedule: **A.M. 03:00**
 
