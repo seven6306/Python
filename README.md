@@ -110,8 +110,9 @@ According build result, if fail then send result mail to BIOS team, else not.
 The template will decorate the result data from CollectResults.py then parse to job environment variables.
 
 ---
-<a name="address"/>
+
 ## BIOS Team Mail Address:
+<a name="address"/>
  * Ciou.Beck@inventec.com
  * TAO03GE@inventec.com
 
