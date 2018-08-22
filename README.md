@@ -38,7 +38,7 @@ D:\Veb30_7
 
 ## BIOS Auto Build
 <a name="build"/>
-1.  Job View: [KINGLER1P](http://10.6.75.10:8081/view/KINGLER-1P/)
+1.  Job View: [KINGLER1P](http://10.6.75.10:8081/view/KINGLER-1P)
 
 2.  Schedule: **A.M. 03:00**
 
@@ -57,7 +57,7 @@ D:\Veb30_7
 
 ## BIOS Auto Release
 <a name="release"/>
-1.  Job View: [KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/)
+1.  Job View: [KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE)
 
 2.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
