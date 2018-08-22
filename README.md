@@ -51,7 +51,7 @@ D:\Veb30_7
 ---
 
 ## BIOS Auto Release
-
+<a name="release"/>
 1.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
 
@@ -71,7 +71,7 @@ D:\Veb30_7
 When all the project scheduled build finished, the job **PROJECT-BUILD-BIOS-CHECK** will start to check the
 file **build_message** below each dairy build project directory, to generate a data for groovy script:
 **groovy-html-report.template**, more detail to refer to [Jenkins Send Mail Mechanism](#mail).
-
+<a name="report"/>
 1.  Jenkins Job: **PROJECT-BUILD-BIOS-CHECK**
 
 2.  Python Tool: **CollectResults.py**
@@ -86,7 +86,7 @@ file **build_message** below each dairy build project directory, to generate a d
 ## BIOS Check Setup Item Mechanism
 Auto compare the Setup.Type between backup and build directory (contains all struct),
 currently work project only KINGLER1P.
-
+<a name="setup"/>
 1.  Backup Directory: **D:\SetupBackup**
 
 2.  Check Tool: **CheckSetup.py**
@@ -96,7 +96,7 @@ currently work project only KINGLER1P.
 ## Jenkins Send Mail Mechanism
 **Settings:** 
 [Jenkins / Management Jenkins / Editable Email Template Management / svn_temp or svn_temp_release](http://10.6.75.10:8081/emailexttemplates/)
-
+<a name="mail"/>
 1.  Groovy Script: **D:\Jenkins_script**
 
 2.  Result Template: **template_svn.jelly**
@@ -110,7 +110,7 @@ According build result, if fail then send result mail to BIOS team, else not.
 The template will decorate the result data from CollectResults.py then parse to job environment variables.
 
 ---
-
+<a name="address"/>
 ## BIOS Team Mail Address:
  * Ciou.Beck@inventec.com
  * TAO03GE@inventec.com
