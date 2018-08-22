@@ -2,13 +2,13 @@ CNBL Jenkins CI/CD
 ==================
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Jenkins_logo_with_title.svg/640px-Jenkins_logo_with_title.svg.png)
 ## Overview
- * [Introduction](#workflow)
- * [BIOS Auto Build](#build)
- * [BIOS Auto Release](#release)
- * [BIOS Dairy Report Mechanism](#report)
- * [BIOS Check Setup Item Mechanism](#setup)
- * [Jenkins Send Mail Mechanism](#mail)
- * [BIOS Team Mail Address](#address)
+ - [Introduction](#workflow)
+ - [BIOS Auto Build](#build)
+ - [BIOS Auto Release](#release)
+ - [BIOS Dairy Report Mechanism](#report)
+ - [BIOS Check Setup Item Mechanism](#setup)
+ - [Jenkins Send Mail Mechanism](#mail)
+ - [BIOS Team Mail Address](#address)
 
 ---
 ## Workflow
@@ -47,12 +47,12 @@ D:\Veb30_7
      - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
 
 4.  Python Tools:
-    * Rebuild.bat
-    * ProjectSelector.py
-    * BuildResult.py
-    * BuildRetry.py
-    * CheckSetup.py
-    * EnvironInjector.py
+    - Rebuild.bat
+    - ProjectSelector.py
+    - BuildResult.py
+    - BuildRetry.py
+    - CheckSetup.py
+    - EnvironInjector.py
 
 ---
 
@@ -65,17 +65,17 @@ D:\Veb30_7
      - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
 
 3.  Afu Tools: D:\afu_tools
-     - case1: KINGLER
-     - case2:AS60G1
-     - case3:EXEGGCUTE
+     - case1 - KINGLER
+     - case2 - AS60G1
+     - case3 - EXEGGCUTE
 
 4.  Python Tools:
-    * Rebuild.bat
-    * ProjectSelector.py
-    * BuildResult.py
-    * EnvironInjector.py
-    * Func7zip.py
-    * ArchivePackage.py
+    - Rebuild.bat
+    - ProjectSelector.py
+    - BuildResult.py
+    - EnvironInjector.py
+    - Func7zip.py
+    - ArchivePackage.py
 
 ---
 
@@ -117,8 +117,8 @@ currently work project only KINGLER1P.
 According build result, if fail then send result mail to BIOS team, else not.
 
 3.  Collect Result Pipline: **Jenkinsfile.server.reports**
-    * The job on jenkins use to collect each dairy build result and arrange these results to groovy variables.
-    * At last send the report list to BIOS team.
+    - The job on jenkins use to collect each dairy build result and arrange these results to groovy variables.
+    - At last send the report list to BIOS team.
     
 4.  Report Template: groovy-html-report.template
 The template will decorate the result data from CollectResults.py then parse to job environment variables.
@@ -127,6 +127,6 @@ The template will decorate the result data from CollectResults.py then parse to 
 
 ## BIOS Team Mail Address:
 
- * Ciou.Beck@inventec.com
- * TAO03GE@inventec.com
+ - Ciou.Beck@inventec.com
+ - TAO03GE@inventec.com
 <a name="address"/>
