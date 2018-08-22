@@ -34,9 +34,9 @@ D:\python_script
 D:\Veb30_7
 
 ---
-<a name="build"/>
-## BIOS Auto Build
 
+## BIOS Auto Build
+<a name="build"/>
 1.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
 
@@ -49,9 +49,9 @@ D:\Veb30_7
     * EnvironInjector.py
 
 ---
-<a name="release"/>
-## BIOS Auto Release
 
+## BIOS Auto Release
+<a name="release"/>
 1.  Build Directory
     e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
 
@@ -66,12 +66,12 @@ D:\Veb30_7
     * ArchivePackage.py
 
 ---
-<a name="report"/>
+
 ## BIOS Dairy Report Mechanism
 When all the project scheduled build finished, the job **PROJECT-BUILD-BIOS-CHECK** will start to check the
 file **build_message** below each dairy build project directory, to generate a data for groovy script:
 **groovy-html-report.template**, more detail to refer to [Jenkins Send Mail Mechanism](#mail).
-
+<a name="report"/>
 1.  Jenkins Job: **PROJECT-BUILD-BIOS-CHECK**
 
 2.  Python Tool: **CollectResults.py**
@@ -82,21 +82,21 @@ file **build_message** below each dairy build project directory, to generate a d
 4.  Physical Path: D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
 
 ---
-<a name="setup"/>
+
 ## BIOS Check Setup Item Mechanism
 Auto compare the Setup.Type between backup and build directory (contains all struct),
 currently work project only KINGLER1P.
-
+<a name="setup"/>
 1.  Backup Directory: **D:\SetupBackup**
 
 2.  Check Tool: **CheckSetup.py**
 
 ---
-<a name="mail"/>
+
 ## Jenkins Send Mail Mechanism
 **Settings:**
 [Jenkins / Management Jenkins / Editable Email Template Management / svn_temp or svn_temp_release](http://10.6.75.10:8081/emailexttemplates/)
-
+<a name="mail"/>
 1.  Groovy Script: **D:\Jenkins_script**
 
 2.  Result Template: **template_svn.jelly**
