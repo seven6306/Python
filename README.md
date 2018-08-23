@@ -93,7 +93,7 @@ file **build_message** below each dairy build project directory, to generate a d
      - **[PROJECT-BUILD-BIOS-CHECK](http://10.6.75.10:8081/job/PROJECT-BUILD-BIOS-CHECK/ "CHECK")**
 
 2.  Schedule:
-     - **A.M. 03:00**
+     - **A.M. 05:00**
 
 3.  Collect Tool:
      - **CollectResults.py**
@@ -133,7 +133,7 @@ The Janitor job will scheduled clean the directory that not be in used, To keep 
     - **[PROJECT-DIR-JANITOR](http://10.6.75.10:8081/job/PROJECT-DIR-JANITOR/ "CLEAN")**
 
 2.  Schedule:
-    - **A.M. 03:10**
+    - **A.M. 05:30**
 
 3.  Clean Tool:
     - **JobsJanitor.py**
