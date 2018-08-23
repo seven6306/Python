@@ -88,26 +88,48 @@ file **build_message** below each dairy build project directory, to generate a d
 
 2.  Schedule: **A.M. 03:00**
 
-3.  Python Tool: **CollectResults.py**
+3.  Collect Tool: **CollectResults.py**
 
 4.  Collect File: **build_message**
      - e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY\build_message
 
-5.  Physical Path: D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
+5.  Backup Cache: **D:\Jenkins\cache**
+     - The path will backup the last check build_message use to while project build failed, it will to read this file to prevent data losing.
+
+6.  Pipeline: **D:\Jenkins_script\Jenkinsfile.server.reports**
+
+7.  Physical Path: D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
 
 ---
 
 ## BIOS Check Setup Item Mechanism
-Auto compare the Setup.Type between backup and build directory (contains all struct),
-currently work project only KINGLER1P.
+Auto compare the Setup.Type between backup and build directory (contains all struct), currently work project only KINGLER1P.
 <a name="setup"/>
 1.  Backup Directory: **D:\SetupBackup**
+     - The path will backup the last check * currently build Setup.Type*, the backup is use to compare with *next build Setup.Type*.
 
 2.  Check Tool: **CheckSetup.py**
 
 ---
 
-## Jenkins Send Mail Mechanism
+## Project Directory Janitor
+The Janitor job will scheduled clean the directory that not be in used, To keep the workspace neatly clean.
+<a name="janitor"/>
+1.  Job View: **[PROJECT-DIR-JANITOR](http://10.6.75.10:8081/job/PROJECT-DIR-JANITOR/ "CLEAN")**
+
+2.  Schedule: **A.M. 03:10**
+
+3.  Clean Tool: **JobsJanitor.py**
+
+4.  Workspace: **D:\Jenkins\workspace**
+
+5.  Pipeline: **D:\Jenkins_script\Jenkinsfile.server.janitor**
+
+6.  Physical Path: D:\Jenkins\workspace\PROJECT-DIR-JANITOR
+
+---
+
+## Send Mail Mechanism
 **Settings:**
 [Jenkins / Management Jenkins / Editable Email Template Management / svn_temp or svn_temp_release](http://10.6.75.10:8081/emailexttemplates/)
 <a name="mail"/>
@@ -121,7 +143,7 @@ currently work project only KINGLER1P.
     - At last send the report list to BIOS team.
     
 4.  Report Template: groovy-html-report.template
-The template will decorate the result data from CollectResults.py then parse to job environment variables.
+    - The template will decorate the result data from CollectResults.py then parse to job environment variables.
 
 ---
 
