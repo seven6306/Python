@@ -7,7 +7,8 @@ CNBL Jenkins CI/CD
  - [BIOS Auto Release](#release)
  - [BIOS Dairy Report Mechanism](#report)
  - [BIOS Check Setup Item Mechanism](#setup)
- - [Jenkins Send Mail Mechanism](#mail)
+ - [Project Directory Janitor](#janitor)
+ - [Send Mail Mechanism](#mail)
  - [BIOS Team Mail Address](#address)
 
 ---
