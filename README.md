@@ -151,7 +151,7 @@ The Janitor job will scheduled clean the directory that not be in used, To keep 
 
 ## Send Mail Mechanism
 **Settings:**
-[Jenkins / Management Jenkins / Editable Email Template Management / svn_temp or svn_temp_release](http://10.6.75.10:8081/emailexttemplates/)
+[Editable Email Template Management](http://10.6.75.10:8081/emailexttemplates/)
 <a name="mail"/>
 1.  Groovy Script:
     > D:\Jenkins_script
