@@ -27,7 +27,7 @@ It's a job proxy server, build on docker container.
 5.  When status changed to connected, Enjoy it!
 
 #### Working Space
-D:\Jenkins\workspace
+> D:\Jenkins\workspace
 
 #### Python Tool Directory
 D:\python_script
