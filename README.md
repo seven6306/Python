@@ -47,7 +47,7 @@ It's a job proxy server, build on docker container.
      - **A.M. 01:00**
 
 3.  Build Directory
-    > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
+     > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
 
 4.  Python Tools:
     - Rebuild.bat
@@ -66,7 +66,7 @@ It's a job proxy server, build on docker container.
      - **[KUNLUNS](http://10.6.75.10:8081/job/KUNLUNS-BUILD-BIOS-RELEASE/ "KUNLUNS")**
 
 2.  Build Directory
-     - > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
+     > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-RELEASE
 
 3.  Afu Tools:
      - **D:\afu_tools**
@@ -100,17 +100,17 @@ file **build_message** below each dairy build project directory, to generate a d
 
 4.  Collect File:
      - **build_message**
-     - > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY\build_message
+     > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY\build_message
 
 5.  Backup Cache:
-     - > D:\Jenkins\cache
+     > D:\Jenkins\cache
      - The path will backup the last check build_message use to while project build failed, it will to read this file to prevent data losing.
 
 6.  Pipeline:
-    - > D:\Jenkins_script\Jenkinsfile.server.reports
+    > D:\Jenkins_script\Jenkinsfile.server.reports
 
 7.  Physical Path:
-    - D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
+    > D:\Jenkins\workspace\PROJECT-BUILD-BIOS-CHECK
 
 ---
 
@@ -118,7 +118,7 @@ file **build_message** below each dairy build project directory, to generate a d
 Auto compare the Setup.Type between backup and build directory (contains all struct), currently work project only KINGLER1P.
 <a name="setup"/>
 1.  Backup Directory:
-     - > D:\SetupBackup
+     > D:\SetupBackup
      - The path will backup the last check * currently build Setup.Type*, the backup is use to compare with *next build Setup.Type*.
 
 2.  Check Tool:
@@ -139,13 +139,13 @@ The Janitor job will scheduled clean the directory that not be in used, To keep 
     - **JobsJanitor.py**
 
 4.  Workspace:
-    - **D:\Jenkins\workspace**
+    > D:\Jenkins\workspace
 
 5.  Pipeline:
-    - **D:\Jenkins_script\Jenkinsfile.server.janitor**
+    > D:\Jenkins_script\Jenkinsfile.server.janitor
 
 6.  Physical Path:
-    - D:\Jenkins\workspace\PROJECT-DIR-JANITOR
+    > D:\Jenkins\workspace\PROJECT-DIR-JANITOR
 
 ---
 
@@ -154,7 +154,7 @@ The Janitor job will scheduled clean the directory that not be in used, To keep 
 [Jenkins / Management Jenkins / Editable Email Template Management / svn_temp or svn_temp_release](http://10.6.75.10:8081/emailexttemplates/)
 <a name="mail"/>
 1.  Groovy Script:
-    - **D:\Jenkins_script**
+    > D:\Jenkins_script
 
 2.  Result Template:
     - **template_svn.jelly**
@@ -166,7 +166,7 @@ The Janitor job will scheduled clean the directory that not be in used, To keep 
     - At last send the report list to BIOS team.
     
 4.  Report Template:
-    - groovy-html-report.template
+    - **groovy-html-report.template**
     - The template will decorate the result data from CollectResults.py then parse to job environment variables.
 
 ---
