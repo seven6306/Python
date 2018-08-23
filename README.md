@@ -47,7 +47,7 @@ It's a job proxy server, build on docker container.
      - **A.M. 01:00**
 
 3.  Build Directory
-     - > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
+    > e.g., D:\Jenkins\workspace\KINGLER1P-BUILD-BIOS-DAIRY
 
 4.  Python Tools:
     - Rebuild.bat
