@@ -30,10 +30,10 @@ It's a job proxy server, build on docker container.
 > D:\Jenkins\workspace
 
 #### Python Tool Directory
-D:\python_script
+> D:\python_script
 
 #### Veb Tools Directory
-D:\Veb30_7
+> D:\Veb30_7
 
 ---
 
